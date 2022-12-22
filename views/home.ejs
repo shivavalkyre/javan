@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>.: Family Asset :.</title>
+	<link rel="icon" href="/img/vs.png" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="/themes/metro-blue/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="/themes/color.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/css/navpanel.css"> -->
+	<link rel="stylesheet" type="text/css" href="/themes/color.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	
+	<script type="text/javascript" src="/js/home.js"></script>
+	<link rel="stylesheet" href="/css/w3.css">
+
+	<style>
+html { 
+  background: url(img/b1.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.fixed {
+    position: absolute;
+	top:15;
+    bottom: 0;
+    right: 0;
+	left:93%;
+    width: 70px;
+}<!--- logo --->
+div.fixed1 { <!-- menu-->
+	position: fixed;
+    bottom: 0;
+    right: 0;
+	left:100%;
+	top:0;
+    width: 300px;
+
+}
+div.fixed2 { <!-- menu shortcut-->
+	
+    bottom: 0;
+    right: 0;
+	left:0;
+	top:300px;
+    width: 100%;
+	
+}
+
+div.fixed3 { <!-- menu bar1-->
+	position: absolute;
+    bottom: 0;
+    right: 0;
+	left:0;
+	top:0px;
+    width: 30%;
+	
+}
+div.fixed4 { <!-- menu bar2-->
+	position: absolute;
+    bottom: 0;
+    right: 10;
+	left:0;
+	top:0px;
+	margin-top:-18px;
+	margin-left:50%;
+    width: 30%;
+
+}
+</style>
+	
+
+</head>
+
+<body>
+
+    <div class="easyui-layout" style="width:100%;height:660px;opacity:0.85;">
+        <div data-options="region:'north'" style="height:80px">
+		<div class="fixed">
+			<img src="./img/vs.png" style="width:50px;height:50px;margin-top:12px;">
+		</div>
+		<!--<div class="fixed1" style="color:white;background-color:#99b433;">-->
+		<div class="fixed1">
+		<a href="#" id="mb0" class="easyui-menubutton" data-options="menu:'#mm0'">File</a>
+        <a href="#" id="mb1" class="easyui-menubutton" data-options="menu:'#mm1',iconCls:'icon-gear'">Menu</a>
+        <a href="#" id="mb2" class="easyui-menubutton" data-options="menu:'#mm2',iconCls:'icon-help'">Help</a>
+		</div>
+		<br>
+		<div class="fixed2">
+		<!--<a href="#" id="btn1" class="easyui-linkbutton" data-options="iconCls:'icon-monitoring'">Stock Monitoring</a>
+		<a href="#" id="btn2" class="easyui-linkbutton" data-options="iconCls:'icon-transaction'">Kasir Transaction</a>-->
+		</div>
+		
+		<div id="mm0" style="width:100px;" data-options="
+				onClick:function(item){
+					logoff();
+				}
+			">
+        <div name="Exit" data-options="iconCls:'icon-close'">Exit</div>
+		</div>
+		
+		<div id="mm1" style="width:150px;" data-options="
+				onClick:function(item){
+					//alert(item.name);
+					menuSelection(item.name);
+				}
+			">
+
+		
+		 <div id="mn_setting">
+            <span>Setting</span>
+            <div>
+				
+				<div name="Family" data-options="iconCls:'icon-man'">Family</div>
+				<div name="Product" data-options="iconCls:'icon-man'">Product</div>
+				<div name="Asset" data-options="iconCls:'icon-man'">Asset</div>
+            </div>
+        </div>
+		
+
+		 
+	   
+	   
+		</div>
+
+    <div id="mm2" style="width:150px;">
+        <div>Help</div>
+        <div>Update</div>
+        <div>
+            <span>About</span>
+            <div class="menu-content" style="padding:10px;text-align:left">
+                <img src="./img/logo1.png" style="width:100px;height:100px">
+                <p style="font-size:14px;color:#444">Try our complete solution applications for your business.</p>
+            </div>
+        </div>
+    </div>
+		</div>
+        <div data-options="region:'south',split:false" style="height:25px;">
+			<div style="text-align:left;">Asyst orde - Family Management
+			
+			</div>
+		</div>
+        <div data-options="region:'center'">
+		<div class="easyui-tabs" fit="true" border="true" id="ttab" style="width:100%;height:100%;max-width:100%; border-radius:1px">
+					<div title="Welcome" closable="true" style="padding:20px;"> 
+						<div style="margin-top:20px;">
+							<h3>Selamat datang di Family Management</h3>
+							<li>dalam system ini dapat di lakukan entry data .</li> 
+							<li>proses reporting juga dapat dilakukan dalam aplikasi ini.</li> 
+							<li>aplikasi ini masih dalam tahap pengembangan.</li> 											
+						</div>
+					</div>					
+		</div>
+		</div>
+</div>
+    </div>
+
+<script>
+
+function logoff(){
+	var winVisible = 0;
+	var win
+	
+		var TopPosition = (window.innerHeight) /6;
+		var LeftPosition = (window.innerWidth)/ 2.5;
+		
+winVisible = 1;
+ win = $.messager.confirm('Logout Confirm', 'Do you want to Logout?', function(r){
+
+	if (r){
+		window.location='/';
+	}else{
+		winVisible = 0;
+	}
+});
+win.window('move',{
+	left:LeftPosition,
+	top:TopPosition
+})
+
+
+$(window).resize(function() {
+  //resize just happened, pixels changed
+  //alert ("window resize");
+  //alert (winVisible);
+  //alert (win.filter(":visible")​​​​​​​​.length);
+	if (winVisible>0){
+		var TopPosition = (window.innerHeight) /3;
+		var LeftPosition = (window.innerWidth)/ 2.5;
+		win.window('move',{
+	left:LeftPosition,
+	top:TopPosition
+})
+	}
+});
+
+}
+
+		var index = 0;
+		function addTab(title,url){
+		if ($('#ttab').tabs('exists', title)){
+				$('#ttab').tabs('select', title);
+			} else {
+			index++;
+			//alert (url);
+			var content = '<iframe scrolling="auto" frameborder="0"  src="'+url+'" style="width:100%;height:90%;"></iframe>';
+			$('#ttab').tabs('add',{
+				title: title,
+				content: content,
+				closable: true,
+				fit: true
+			});
+			
+			}
+			//$('#cc').layout('collapse','west');
+			$('#ttab').tabs('close', 'Welcome');
+			
+		}
+function menuSelection(title){
+	//alert (title);
+	var url= "/"+title;
+	//alert (url);
+	addTab (title,url);
+}	
+ $('#btn1').bind('click', function(e){
+    menuSelection('Stock monitoring');
+  });	
+   $('#btn2').bind('click', function(e){
+    menuSelection('Kasir Transaction');
+  });
+</script>
+</body>
+
+</html>

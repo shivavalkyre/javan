@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>.: Family Asset :.</title>
+	<link rel="icon" href="/img/vs.png" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="/themes/metro-blue/easyui.css">
+	<link rel="stylesheet" type="text/css" href="/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="/themes/color.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/css/navpanel.css"> -->
+	<link rel="stylesheet" type="text/css" href="/themes/color.css">
+	<link rel="stylesheet" type="text/css" href="/themes/mobile.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="/js/jquery.easyui.mobile.js"></script>
+	<script type="text/javascript" src="/js/home.js"></script>
+	<link rel="stylesheet" href="/css/w3.css">
+	<style>
+				
+		.datagrid-row{
+    		height:45px;
+		}
+		</style>
+</head>
+
+<body>
+	<table id="dg" title="" class="easyui-datagrid" style="width:100%;height:280px;opacity:0.85"
+				url="/get_product"
+				toolbar="#toolbar" pagination="true"
+				rownumbers="true" fitColumns="true" singleSelect="true">
+			<thead>
+				<tr>
+					<th field="product" width="50">Product</th>
+					<th field="price" width="50">Price</th>
+				</tr>
+			</thead>
+			</table>
+			<div id="toolbar">
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newChild()">New Data</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editChild()">Edit Data</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyChild()">Remove Data</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-reload" plain="true" onclick="getPrice()">Sync Price</a>
+			</div>
+
+			<div id="dlg" class="easyui-dialog" style="width:400px" data-options="closed:true,modal:true,border:'thin',buttons:'#dlg-buttons'">
+			<form id="fm" method="post" novalidate style="margin:0;padding:20px 50px">
+				<h3>Product Information</h3>
+				<div style="margin-bottom:10px">
+					<input  name="product"  class="easyui-textbox" required="true" label="Product:" labelPosition="top" style="width:100%">
+				</div>
+				<div style="margin-bottom:10px">
+					<input  name="price"  class="easyui-textbox"  label="Price:" labelPosition="top" style="width:100%">
+				</div> 
+
+				</div>
+			</form>
+			</div>
+			<div id="dlg-buttons">
+			<a href="javascript:void(0)" class="easyui-linkbutton c6" iconCls="icon-ok" onclick="saveChild()" style="width:90px">Save</a>
+			<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#dlg').dialog('close')" style="width:90px">Cancel</a>
+			</div>
+
+            <script type="text/javascript" src="/js/product.js"></script>
+</body>
+</html>
+
